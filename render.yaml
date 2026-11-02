@@ -1,0 +1,16 @@
+# Render Blueprint for After Hours V2 (real-time Node.js + WebSockets).
+# Connect this repository via Render > New > Blueprint or create a Web Service manually.
+# NEVER place your Supabase secret key in this file or commit it to GitHub.
+services:
+  - type: web
+    name: after-hours-date-night
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SECRET_KEY
+        sync: false

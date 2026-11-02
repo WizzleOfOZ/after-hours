@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta name="theme-color" content="#100b1c"/>
+  <meta name="description" content="After Hours — a private two-player date night adventure."/>
+  <title>After Hours · A date night for two</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <link rel="stylesheet" href="/styles.css"/>
+</head>
+<body>
+<div class="vignette" aria-hidden="true"></div>
+<div id="app">
+  <header class="topbar">
+    <div class="identity"><div class="mark" aria-hidden="true"><span>✦</span></div><div><span class="wordmark">AFTER <em>HOURS</em></span><span class="submark">A NIGHT THAT BELONGS TO TWO</span></div></div>
+    <div id="topStatus" class="topstatus"><i class="dot"></i><span>PRIVATE TWO-PLAYER EXPERIENCE</span></div>
+    <button id="soundButton" class="sound-toggle" title="Turn original soundtrack on or off" hidden>♪ <span>Sound off</span></button>
+  </header>
+  <main>
+    <section id="landing" class="landing">
+      <div class="moon moon-landing" aria-hidden="true"></div>
+      <div class="city-back" aria-hidden="true"></div>
+      <div class="landing-body">
+        <div class="eyebrow"><span class="eyebrow-line"></span> ONE CITY. TWO HEARTBEATS. THREE ADVENTURES.</div>
+        <h1>Tonight, the city<br/><em>belongs to us.</em></h1>
+        <p class="hero-lede">Come for the chaos. Stay for the impossible. End somewhere only the two of you can find.</p>
+        <div class="login-panel">
+          <label class="field-label" for="playerName">WHAT SHOULD THE CITY CALL YOU?</label>
+          <input id="playerName" class="field" placeholder="Your name" maxlength="22" autocomplete="nickname"/>
+          <div class="landing-actions"><button class="primary-btn" id="createRoom">CREATE OUR NIGHT <span>↗</span></button><div class="or">OR JOIN YOUR PERSON</div></div>
+          <div class="join-row"><input id="roomCode" class="field code-input" placeholder="6-LETTER CODE" maxlength="6" autocomplete="off"/><button class="outline-btn" id="joinRoom">JOIN ROOM ↗</button></div>
+          <p class="error" id="landingError" role="alert"></p>
+        </div>
+      </div>
+      <div class="three-acts"><span>01 · LAUGH</span><span class="act-separator">✧</span><span>02 · TRUST</span><span class="act-separator">✧</span><span>03 · FEEL</span></div>
+    </section>
+    <section id="experience" class="experience" hidden>
+      <div class="chapter-strip"><span class="chapter-note" id="chapterNote">THE NIGHT BEGINS</span><div id="chapterProgress" class="chapter-progress"></div><span class="room-code">ROOM <strong id="roomBadge">------</strong></span></div>
+      <div class="game-heading"><div><p id="actLabel" class="eyebrow">ACT 00 · THE ARRIVAL</p><h2 id="actTitle">The invitation</h2><p id="actIntro" class="act-intro">Every good night starts somewhere.</p></div><div class="avatars" id="avatars"></div></div>
+      <div id="lobbyPanel" class="lobby-panel" hidden>
+        <div class="lobby-illustration"><div class="lobby-moon"></div><div class="lobby-rooftop"></div><span class="lobby-illumination">✦</span></div>
+        <div class="lobby-main"><div class="tiny-label">YOUR PRIVATE INVITATION</div><div class="sharecode" id="largeCode">------</div><p>Send this code or the invite link to your person. Both of you can play from separate computers.</p><div class="lobby-actions"><button class="secondary-btn" id="copyInvite">COPY INVITE LINK ⧉</button><button class="secondary-btn" id="copyCode">COPY CODE ⧉</button></div><div id="waitingText" class="waiting"><i class="dot"></i> Waiting for your person to arrive...</div><button id="startNight" class="primary-btn wide" hidden>LET THE NIGHT BEGIN <span>↗</span></button><p id="guestWaiting" class="small-note" hidden>The host starts the date when you're both ready.</p></div>
+      </div>
+      <div id="playPanel" class="play-panel" hidden>
+        <div class="canvas-holder"><canvas id="world" width="1000" height="600" aria-label="Interactive game world. Use the keyboard and mouse as directed in the control panel."></canvas><div class="canvas-overlay-title"><span id="levelTag">STUDIO 01</span><strong id="levelTitle">Cabin Catastrophe</strong></div><div id="toast" class="toast" aria-live="polite"></div><div class="canvas-bottom"><span id="canvasHint"></span><span id="gameCount"></span></div></div>
+        <aside class="control-panel"><div id="sideContent"></div><div class="aside-footer"><button class="small-text-btn" id="backToHub">▤ VIEW ROOM</button><span id="sessionMessage">LIVE · PRIVATE ROOM</span></div></aside>
+      </div>
+      <div id="lobbyFootnote" class="lobby-footnote" hidden>PRIVATE BY INVITATION · NO ACCOUNTS REQUIRED · YOUR OWN LITTLE CORNER OF THE NIGHT</div>
+    </section>
+  </main>
+  <div id="roomModal" class="room-modal" hidden>
+    <div class="room-dialog" role="dialog" aria-modal="true" aria-labelledby="roomModalTitle">
+      <button id="closeRoomModal" class="room-close" aria-label="Close room menu">✕</button>
+      <p class="eyebrow">YOUR PRIVATE HUB</p>
+      <h2 id="roomModalTitle">The night is yours.</h2>
+      <p class="room-modal-copy">Jump between the experiences whenever you want. Nothing forces you to rush. The first playthrough is designed to flow from laughter to teamwork to romance.</p>
+      <p class="field-label">SHARE YOUR ROOM</p>
+      <div class="room-share"><strong id="modalCode">------</strong><button class="secondary-btn" id="modalCopy">COPY LINK ⧉</button></div>
+      <p class="field-label">ENTER AN EXPERIENCE</p>
+      <div class="room-chapters" id="modalChapters"></div>
+      <p class="support-note" id="modalNote"></p>
+    </div>
+  </div>
+  <footer class="site-footer"><span>AFTER HOURS <b>✦</b> MADE FOR TWO</span><span>AN ORIGINAL, PRIVATE DATE NIGHT</span></footer>
+</div>
+<script type="module" src="/app.js"></script>
+</body>
+</html>
